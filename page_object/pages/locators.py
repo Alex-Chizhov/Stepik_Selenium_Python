@@ -8,3 +8,11 @@ class MainPageLocators:
 class LoginPageLocators:
     LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
     REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
+
+
+class ProductPageLocators:
+    ADD_TO_CART_BUTTON = (By.CSS_SELECTOR, ".btn-add-to-basket")
+    PRODUCT_NAME = (By.CSS_SELECTOR, "div.product_main h1")
+    PRICE = (By.CSS_SELECTOR, "div.product_main .price_color")
+    SUCCESSFULLY_ADDED_TO_CART_MASSAGE = (By.XPATH, "//*[text()[contains(.,'has been added to your basket')]]")
+    TOTAL_PRICE_MASSAGE = (By.XPATH, "//*[text()[contains(.,'Your basket total is now')]]/strong")
