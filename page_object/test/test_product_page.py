@@ -14,3 +14,28 @@ def test_add_to_cart_promo(browser, link):
     page = ProductPage(browser, link)
     page.open()
     page.add_to_cart_item()
+    page.solve_quiz_and_get_code()
+    page.check_product_name_with_main_message()
+    page.check_price_with_price_message()
+
+@pytest.mark.xfail(reason="Negative test (Should be fail)")
+def test_negative_guest_cant_see_success_message_after_adding_product_to_basket(browser):
+    link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-girl-who-played-with-non-fire_203/"
+    page = ProductPage(browser, link)
+    page.open()
+    page.add_to_cart_item()
+    page.check_main_message_not_present()
+
+def test_positive_guest_cant_see_success_message(browser):
+    link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-girl-who-played-with-non-fire_203/"
+    page = ProductPage(browser, link)
+    page.open()
+    page.check_main_message_not_present()
+
+@pytest.mark.xfail(reason="Negative test (Should be fail)")
+def test_negative_message_disappeared_after_adding_product_to_basket(browser):
+    link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-girl-who-played-with-non-fire_203/"
+    page = ProductPage(browser, link)
+    page.open()
+    page.add_to_cart_item()
+    page.check_main_message_disappeared()
