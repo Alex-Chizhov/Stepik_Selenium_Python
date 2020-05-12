@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    BASKET_BUTTON = (By.CSS_SELECTOR, ".btn-group a.btn-default")
 
 class MainPageLocators:
     pass
@@ -19,3 +20,8 @@ class ProductPageLocators:
     PRICE = (By.CSS_SELECTOR, "div.product_main .price_color")
     PRODUCT_NAME_ADDED_TO_CART_MASSAGE = (By.XPATH, "//div[text()[contains(.,'has been added to your basket')]]/strong")
     TOTAL_PRICE_MASSAGE = (By.XPATH, "//*[text()[contains(.,'Your basket total is now')]]/strong")
+
+
+class BasketPageLocators:
+    BASKET_ITEM = (By.CSS_SELECTOR, ".basket-items")
+    MASSAGE_BASKET_IS_EMPTY = (By.XPATH, "//p[text()[contains(.,'Your basket is empty')]]")
