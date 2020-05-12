@@ -24,4 +24,4 @@ class ProductPageLocators:
 
 class BasketPageLocators:
     BASKET_ITEM = (By.CSS_SELECTOR, ".basket-items")
-    MASSAGE_BASKET_IS_EMPTY = (By.XPATH, "//p[text()[contains(.,'Your basket is empty')]]")
+    MASSAGE_BASKET_IS_EMPTY = (By.XPATH, "//div[@class='content']//p[text()[contains(.,'Your basket is empty')]]")
