@@ -10,7 +10,7 @@ import pytest
 class TestUserAddToBasketFromProductPage:
 
     @pytest.fixture(scope="function", autouse=True)
-    def prepare_user(self, browser):
+    def setup_prepare_user(self, browser):
         page = LoginPage(browser)
         page.go_to_login_page()
         page.register_new_user()
