@@ -27,15 +27,25 @@ class TestUserAddToBasketFromProductPage:
         page.add_to_cart_item()
         page.check_main_message_not_present()
 
-    def test_user_can_add_to_cart(self, browser):
+    @pytest.mark.need_review
+    def test_user_can_add_product_to_basket(self, browser):
         link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
         page = ProductPage(browser, link)
         page.open()
         page.add_to_cart_item()
 
 
+@pytest.mark.need_review
+def test_guest_can_add_product_to_basket(browser):
+    link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/"
+    page = ProductPage(browser, link)
+    page.open()
+    page.add_to_cart_item()
+    page.check_product_name_with_main_message()
+    page.check_price_with_price_message()
+
 @pytest.mark.parametrize('link', promo_links)
-def test_add_to_cart_promo(browser, link):
+def test_guest_can_add_product_to_basket_promo(browser, link):
     page = ProductPage(browser, link)
     page.open()
     page.add_to_cart_item()
@@ -55,12 +65,14 @@ def test_guest_should_see_login_link_on_product_page(browser):
     page.open()
     page.should_be_login_link()
 
+@pytest.mark.need_review
 def test_guest_can_go_to_login_page_from_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
     page = ProductPage(browser, link)
     page.open()
     page.go_to_login_page_by_link()
 
+@pytest.mark.need_review
 def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
     page = ProductPage(browser, link)
