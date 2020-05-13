@@ -11,7 +11,7 @@ class TestLoginFromMainPage:
         link = "http://selenium1py.pythonanywhere.com/"
         page = MainPage(browser, link)   # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url адрес
         page.open()                      # открываем страницу
-        page.go_to_login_page()          # выполняем метод страницы - переходим на страницу логина
+        page.go_to_login_page_by_link()          # выполняем метод страницы - переходим на страницу логина
         login_page = LoginPage(browser, browser.current_url)
         login_page.should_be_login_page()
     
