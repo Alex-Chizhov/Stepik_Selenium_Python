@@ -7,7 +7,7 @@ from .locators import BasePageLocators
 import math
 
 class BasePage:
-    def __init__(self, browser, url, timeout=10):
+    def __init__(self, browser, url=None, timeout=10):
         self.browser = browser
         self.url = url
         self.browser.implicitly_wait(timeout)
@@ -53,7 +53,7 @@ class BasePage:
         except NoAlertPresentException:
             print("No second alert presented")
 
-    def go_to_login_page(self):
+    def go_to_login_page_by_link(self):
         # * - указывает на то, что мы передали именно пару, и этот кортеж нужно распаковать.
         login_link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         login_link.click()
